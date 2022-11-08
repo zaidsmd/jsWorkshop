@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a5fdcae6a3.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>Star rhombus</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section aria-label="Swap Exercise " class="section-exercise" id="rhombus">
+        <h1 class="section-title">Star Rhombus</h1>
+        <div class="exercise-container">
+            <div class="state">This program aims to draw a star rhombus whose diagonal length is an odd number entered
+                by the user. If the user enters an even number, an error should be displayed.
+            </div>
+            <div class="demo">
+                <form>
+                    <p>Enter the length of the diagonals:</p>
+                    <input name="number" placeholder="Must be odd" type="number">
+                    <button class="btn-primary" type="button">Draw</button>
+                </form>
+                <div>
+                    <pre></pre>
+                    <pre class="star"></pre>
+                </div>
+            </div>
+            <div class="demo"></div>
+            <div class="script">
+        <textarea readonly rows="32">
+
+        let space = " ";
+        let star = "*"
+        let btn = document.querySelector('#rhombus button');
+        let drawArea = document.querySelector("#rhombus pre");
+        btn.addEventListener('click', function () {
+            drawArea.innerHTML = '';
+            let rhombusLength = parseInt(document.querySelector('#rhombus input').value);
+            let looper = 1;
+            if (rhombusLength % 2 === 0) {
+                drawArea.innerHTML = `<p style="color:red !important;">Please enter an odd number !!</p>`;
+            } else {
+                let timesRepeat = ((rhombusLength - 1) / 2);
+                for (i = timesRepeat; i > 0; i++) {
+                    drawArea.innerHTML += `${space.repeat(timesRepeat)} ${star.repeat(looper)} <br>`;
+                    looper += 2;
+                    timesRepeat -= 1;
+                    i = timesRepeat
+                }
+                looper = rhombusLength - 2;
+                let timesRepeatReveres = 0;
+                for (i = timesRepeatReveres; i < rhombusLength; i++) {
+                    drawArea.innerHTML += `${space.repeat(timesRepeatReveres)} ${star.repeat(looper + 1)} <br>`;
+                    looper -= 2;
+                    timesRepeatReveres += 1;
+                }
+            }
+        })
+
+
+        </textarea>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="javascript/myscript.js"></script>
+<script src="javascript/rhombus.js"></script>
+</body>
+</html>

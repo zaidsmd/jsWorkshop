@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/a5fdcae6a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Date Exercise</title>
+</head>
+<body>
+<header>
+  <a href="index.html" id="logo">
+    <p>JS</p>
+    <p>Workshop</p>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#">Home</a></li>
+      <li><a href="index.html#about">About JS</a></li>
+      <li><a href="index.html#exercises">Exercises</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="date-validator" aria-label="Swap Exercise " class="section-exercise">
+    <h1 class="section-title">Validate the date</h1>
+    <div class="exercise-container">
+      <div class="state">Write a script that allows you to enter the three fields of a date (day, month and year) and to indicate whether the date is correct or not</div>
+      <div class="demo">
+        <div>
+            <div class="date">
+                <p>Day:</p>
+                <input type="number" name="day">
+            </div>
+            <div class="month">
+                <p>Month:</p>
+                <input type="number" name="month">
+            </div>
+            <div class="year">
+                <p>Year:</p>
+                <input type="number" name="year">
+            </div>
+            <div>
+                <button name="check-date" type="button" class="btn-primary" id="check">Check</button>
+            </div>
+            <div id="check-result"></div>
+        </div>
+      </div>
+      <div  class="script">
+        <textarea  readonly rows="47">
+
+         document.querySelector("[name = 'check-date']").addEventListener('click' , function (){
+    let year = document.querySelector("#date-validator [name='year']").value;
+    let day = document.querySelector("#date-validator [name='day']").value;
+    let month = document.querySelector("#date-validator [name='month']").value;
+    let output = document.getElementById("check-result");
+    switch (+month) {
+        case 2 :
+            if (+year % 4 === 0 && +year > 0 ){
+                if (+day <30 && +day>0) {
+                    output.innerHTML = `${day}/${month}/${year} is a valide date`
+                }else {
+                    output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+                }
+            }else if (+year > 0) {
+                if (+day > 0 && +day < 29){
+                   output.innerHTML = `${day}/${month}/${year} is a valide date`
+                }else {
+                  output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+                }
+            }else {
+                output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+            }
+            break;
+        case 4 || 6 || 9 || 11:
+            if (+year > 0) {
+                if  (+day > 0 && +day < 31) {
+                    output.innerHTML = `${day}/${month}/${year} is a valide date`
+                }else {
+                    output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+                }
+            }else {
+                output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+            }
+            break;
+        default:
+            if (+year > 0) {
+                if  (+day > 0 && +day < 32) {
+                    output.innerHTML = `${day}/${month}/${year} is a valide date`
+                }else {
+                    output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+                }
+            }else {
+                output.innerHTML = `${day}/${month}/${year} is not a valide date !!`
+            }
+    }
+})
+        </textarea>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="javascript/myscript.js"></script>
+<script src="javascript/date_validator.js"></script>
+</body>
+</html>

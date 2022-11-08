@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a5fdcae6a3.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>Guess the number</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section aria-label="Swap Exercise " class="section-exercise" id="guessTheNumber">
+        <h1 class="section-title">Guess the number</h1>
+        <div class="exercise-container">
+            <div class="state">The user must guess a number between 1 and 50 that the program has chosen randomly in 10
+                attempts. When the user enters a value, he is shown the number of remaining attempts, as well as a
+                message indicating whether his answer is correct or not.
+            </div>
+            <div class="demo">
+                <p>Remaining attempts: 10/10</p>
+                <form>
+                    <input name="number" placeholder="From 1 to 50" type="number">
+                    <button class="btn-primary" type="button">submit</button>
+                    <button class="btn-primary" disabled type="button">restart</button>
+                </form>
+                <p></p>
+            </div>
+            <div class="script">
+        <textarea readonly rows="41">
+
+    let attempts = 0 ;
+    let random;
+    let attemptsLeft =  document.querySelector("#guessTheNumber p:first-of-type");
+    let output = document.querySelector("#guessTheNumber p:last-of-type");
+    let input = document.querySelector("#guessTheNumber input");
+    let targeted = document.querySelector("#guessTheNumber button:first-of-type")
+    let resetButton = document.querySelector("#guessTheNumber button:last-of-type")
+    function reset() {
+        attempts = 0;
+        output.innerHTML = ``;
+        attemptsLeft.innerHTML = `Remaining attempts: ${10-attempts}/10`;
+        input.value = '';
+        targeted.removeAttribute('disabled')
+    }
+    function submit() {
+        if (attempts === 0){
+            random = Math.trunc(Math.random() * 50 );
+            resetButton.setAttribute('disabled',"");
+        }
+        if (input.value == random && attempts < 9){
+            output.innerHTML = `<p style="color: green">You won the right number is ${random}</p>`;
+            targeted.setAttribute('disabled',"")
+        }else if (input.value != random && attempts < 9){
+            if (input.value < random) {
+                output.innerHTML = `Try bigger number`
+            }else if (input.value > random) {
+                output.innerHTML = `Try smaller number`
+            }
+        }else {
+            output.innerHTML = `<p style="color: red">You lose the right number is ${random}</p>`;
+            targeted.setAttribute('disabled',"")
+        }
+        attempts++
+        attemptsLeft.innerHTML = `Remaining attempts: ${10-attempts}/10`
+        resetButton.removeAttribute('disabled')
+    }
+    targeted.addEventListener('click',submit)
+    resetButton.addEventListener('click',reset)
+
+        </textarea>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--<script src="javascript/myscript.js"></script>-->
+<script src="javascript/guess.js"></script>
+<script src="javascript/myscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/a5fdcae6a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Array Sort</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="arraySort" aria-label="Sort exercice " class="section-exercise">
+        <h1 class="section-title">Search in Array</h1>
+        <div class="exercise-container">
+            <div class="state">Write a Javascript program that allows you to sort an array of integers (Use any sorting
+                algorithm but especially not the Sort function of the Array object).
+                The user begins by entering the size of the table, then he fills the table to click at the end on a sort
+                button: this will display the table in ascending or descending order.
+            </div>
+            <div class="demo">
+                <div class="set">
+                    <p>Give the size of the array:</p>
+                    <input type="number">
+                    <button class="btn-primary" type="button">Validate</button>
+                </div>
+                <div class="input hide">
+                    <p>Please complete the table:</p>
+                    <div class="array">
+                    </div>
+                    <div class="checkpoint">
+                        <button class="btn-primary" type="button">Sort</button>
+                        <label>
+                            <select >
+                                <option value="1">Merge Sort</option>
+                                <option value="2">Bubble Sort</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="result hide">
+                    <div class="output  "></div>
+                </div>
+            </div>
+            <div class="script">
+        <textarea readonly rows="100">
+
+
+        let setButton = document.querySelector('#arraySort .set button');
+        let arrayLength = document.querySelector('#arraySort .set input');
+        let sortButton = document.querySelector('#arraySort .input button');
+        let table = document.querySelector('#arraySort .input .array');
+        let output = document.querySelector('#arraySort .output ');
+        let myArray = [];
+        let result = [];
+        const createTable = `<input type="number">`;
+        setButton.addEventListener('click', () => {
+                if (arrayLength.value > 0) {
+                    document.querySelector('#arraySort .result').classList.add('hide');
+                    document.querySelector('#arraySort .input').classList.remove('hide');
+                    table.innerHTML = createTable.repeat(parseInt(arrayLength.value))
+                } else {
+                    output.innerHTML = "Please enter a valid number"
+                }
+            }
+        );
+        function mergeSortedArrays(arr1, arr2) {
+            result = [];
+            let i = 0;
+            let j = 0;
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] <= arr2[j]) {
+                    result.push(arr1[i])
+                    i++
+                } else {
+                    result.push(arr2[j])
+                    j++
+                }
+            }
+            while (i < arr1.length) {
+                result.push(arr1[i])
+                i++
+            }
+            while (j < arr2.length) {
+                result.push(arr2[j])
+                j++
+            }
+            output.innerHTML = createTable.repeat(result.length);
+            for (let i = 1 ; i<=result.length ; i++ ){
+                document.querySelector('#arraySort .result').classList.remove('hide');
+                const outputCell = document.querySelector(`#arraySort .output input:nth-child(${i})`)
+                outputCell.value = result[i-1]
+            }
+            return result;
+
+        }
+
+        function sortArray(x) {
+            if (parseInt(x.length) <= 1) {
+                output.innerHTML = createTable;
+                document.querySelector('#arraySort .result').classList.remove('hide');
+                const outputCell = document.querySelector(`#arraySort .output input`)
+                outputCell.value = x[0]
+                return x
+            }else {
+                let midArray = Math.floor(x.length / 2);
+                let left = sortArray(x.slice(0, midArray))
+                let right = sortArray(x.slice(midArray));
+                return mergeSortedArrays(left, right);
+            }
+
+        }
+        function sort() {
+            output.innerHTML = '';
+            myArray = [];
+            for (let i = 1; i <= parseInt(arrayLength.value); i++) {
+                let tableToSort = document.querySelector(`#arraySort .array input:nth-child(${i})`)
+                myArray.push(+(tableToSort.value));
+            }
+             if ((document.querySelector('#arraySort select').value) === "1" ){
+                 sortArray(myArray)
+             }else {
+                 bubblesort()
+             }
+        }
+
+        sortButton.addEventListener('click', sort)
+
+        function bubblesort() {
+            for (let i = 0; i <myArray.length-1 ; i++) {
+                for (let j = 0; j < myArray.length - i -1; j++) {
+                    if (myArray[j]>=myArray[j+1]) {
+                        [myArray[j] , myArray[j+1]]=[myArray[j+1],myArray[j]]
+                    }
+                    console.log(1)
+                }
+            }
+            output.innerHTML = createTable.repeat(myArray.length);
+            for (let u = 1 ; u<=myArray.length ; u++ ){
+                document.querySelector('#arraySort .result').classList.remove('hide');
+                const outputCell = document.querySelector(`#arraySort .output input:nth-child(${u})`)
+                outputCell.value = myArray[u-1]
+            }
+        }
+        </textarea>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="javascript/myscript.js"></script>
+<script src="javascript/arraysort.js"></script>
+</body>
+</html>

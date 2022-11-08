@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a5fdcae6a3.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>Vowel counter</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section aria-label="Swap Exercise" class="section-exercise" id="vowel_counter">
+        <h1 class="section-title">Vowel counter</h1>
+        <div class="exercise-container">
+            <div class="state">Ecrire un programme Javascript qui permet de calculer le nombre de voyelles (a,e,i,o,u,y)
+                dans une phrase saisie par l’utilisateur
+            </div>
+            <div class="demo">
+                <form>
+                    <div>
+                        <p>Enter the sentence here:</p>
+                        <input name=sentence" type="text">
+                        <button class="btn-primary" type="button">count</button>
+                    </div>
+                </form>
+                <table>
+                    <tr>
+                        <td>Vowel</td>
+                        <td>Count</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="script">
+        <textarea readonly rows="72">
+
+        let btn = document.querySelector("#vowel_counter button");
+        let get = document.querySelector("#vowel_counter form input");
+        let result = document.querySelector("#vowel_counter table");
+        function count() {
+        result.innerHTML = `<tr>
+                        <td>Vowel</td>
+                        <td>Count</td>
+                    </tr>`;
+        let sentence = get.value.replaceAll(" ", "");
+        let aCounter = 0;
+        let eCounter = 0;
+        let oCounter = 0;
+        let iCounter = 0;
+        let uCounter = 0;
+        let yCounter = 0;
+        for (i = 0; i < sentence.length; ++i) {
+            switch (sentence[i].toLowerCase()) {
+                case "a":
+                    aCounter += 1;
+                    break;
+                case "e":
+                    eCounter += 1;
+                    break;
+                    case "o":
+                    oCounter += 1;
+                    break;
+                case "i":
+                    iCounter += 1;
+                    break;
+                case "u":
+                    uCounter += 1;
+                    break;
+                case "y":
+                    yCounter += 1;
+                break;
+            }
+        }
+        let counter = aCounter + eCounter + iCounter + yCounter + uCounter + oCounter;
+        result.classList.add("active");
+        result.innerHTML += `
+                <tr>
+                <td>A</td>
+                <td>${aCounter}</td>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>${eCounter}</td>
+                    </tr>
+                <tr>
+                    <td>I</td>
+                    <td>${iCounter}</td>
+                </tr>
+                <tr>
+                     <td>U</td>
+                    <td>${uCounter}</td>
+                </tr>
+                <tr>
+                    <td>O</td>
+                    <td>${oCounter}</td>
+                </tr>
+                <tr>
+                    <td>Y</td>
+                    <td>${yCounter}</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>${counter}</td>
+                </tr>`;
+        }
+        btn.addEventListener("click", count);
+
+        </textarea>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--<script src="javascript/myscript.js"></script>-->
+<script src="javascript/myscript.js"></script>
+<script src="javascript/vowel_counter.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/a5fdcae6a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+    <title>Swap Exercise</title>
+</head>
+<body>
+<header>
+  <a href="index.html" id="logo">
+    <p>JS</p>
+    <p>Workshop</p>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#">Home</a></li>
+      <li><a href="index.html#about">About JS</a></li>
+      <li><a href="index.html#exercises">Exercises</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="swap" aria-label="Swap Exercise " class="section-exercise">
+    <h1 class="section-title">Swap the numbers</h1>
+    <div class="exercise-container">
+      <div class="state">Write a script that swaps two numbers entered in two inputs</div>
+      <div class="demo">
+        <input type="number" name="number1">
+        <button type="button" class="btn-primary">
+          <i class="fa-solid fa-arrow-right"></i>
+          <i class="fa-solid fa-arrow-left"></i></button>
+        <input type="number" name="number2">
+      </div>
+      <div  class="script">
+        <textarea  readonly rows="11">
+
+        let monBouton = document.querySelector(' #swap button');
+        monBouton.addEventListener('click', function(){
+        var x, input1, input2;
+        input1 = document.querySelector("[name='number1']")
+        input2 = document.querySelector("[name='number2']")
+        x = input1.value;
+        input1.value = input2.value;
+        input2.value = x;
+        })
+        </textarea>
+        </div>
+    </div>
+  </section>
+</main>
+<script src="javascript/myscript.js"></script>
+<script src="javascript/swap.js"></script>
+</body>
+</html>

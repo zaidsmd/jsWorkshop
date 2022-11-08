@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/a5fdcae6a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+</head>
+<body>
+<header>
+  <a href="index.html" id="logo">
+    <p>JS</p>
+    <p>Workshop</p>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#">Home</a></li>
+      <li><a href="index.html#about">About JS</a></li>
+      <li><a href="index.html#exercises">Exercises</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="calculator" aria-label="Swap Exercise " class="section-exercise">
+    <h1 class="section-title">Calculator</h1>
+    <div class="exercise-container">
+      <div class="state">Create 4 Javascript functions (Sum, Subtraction, Division, Multiplication). The user enters two numbers into two inputs, then chooses an arithmetic operation. The result is given by one of the 4 JavaScript functions.</div>
+      <div class="demo">
+          <div class="inputs">
+              <input type="number" placeholder="Enter a Number" name="number1" >
+              <input type="number" placeholder="Enter a Number" name="number2" >
+          </div>
+          <div class="buttons">
+              <button type="button" onclick="concatinate()" class="btn-primary">+</button>
+              <button type="button" onclick="subtration()" class="btn-primary">-</button>
+              <button type="button" onclick="multiplication()" class="btn-primary">x</button>
+              <button type="button" onclick="division()" class="btn-primary">/</button>
+          </div>
+          <div class="output">
+              <input placeholder="Result" readonly type="text"  >
+          </div>
+      </div>
+      <div  class="script">
+        <textarea   readonly rows="26">
+
+          function concatinate() {
+          let number1 = document.querySelector("#calculator input[name='number1']").value;
+          let number2 = document.querySelector("#calculator input[name='number2']").value;
+          let output = document.querySelector("#calculator [readonly]");
+          output.value = +number1 + +number2;
+          }
+          function subtration() {
+          let number1 = document.querySelector("#calculator input[name='number1']").value;
+          let number2 = document.querySelector("#calculator input[name='number2']").value;
+          let output = document.querySelector("#calculator [readonly]");
+          output.value = number1 - number2;
+          }
+          function multiplication() {
+          let number1 = document.querySelector("#calculator input[name='number1']").value;
+          let number2 = document.querySelector("#calculator input[name='number2']").value;
+          let output = document.querySelector("#calculator [readonly]");
+          output.value = number1 * number2;
+          }
+          function division() {
+          let number1 = document.querySelector("#calculator input[name='number1']").value;
+          let number2 = document.querySelector("#calculator input[name='number2']").value;
+          let output = document.querySelector("#calculator [readonly]");
+          output.value =  number1 / number2;
+          }
+        </textarea>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="javascript/myscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/a5fdcae6a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Multiplication Table</title>
+</head>
+<body>
+<header>
+  <a href="index.html" id="logo">
+    <p>JS</p>
+    <p>Workshop</p>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#">Home</a></li>
+      <li><a href="index.html#about">About JS</a></li>
+      <li><a href="index.html#exercises">Exercises</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="multiplication-table" aria-label="Swap Exercise " class="section-exercise">
+    <h1 class="section-title">Multiplication table</h1>
+    <div class="exercise-container">
+      <div class="state">Display the multiplication table of a number entered by the user in an input.</div>
+      <div class="demo">
+        <form>
+          <input type="number" name="number" id="val4" placeholder="Enter a number">
+          <button type="button" class="btn-primary">Generate a multiplication table</button>
+        </form>
+        <table>
+          <tr>
+            <td>Multiplication</td>
+            <td>Result</td>
+          </tr>
+        </table>
+      </div>
+      <div  class="script">
+        <textarea   readonly rows="18">
+
+let Bouton = document.querySelector("#multiplication-table button");
+let table = document.querySelector("#multiplication-table table")
+Bouton.addEventListener('click', function(){
+    table.classList.add("active")
+    table.innerHTML = `<tr>
+            <td>Multiplication</td>
+            <td>Result</td>
+          </tr>`
+    x =document.getElementById('val4').value;
+    for (  i = 1 ; i<=10 ; i++) {
+        let resultat = x * i;
+        console.log(x + "" + i + "=" + resultat)
+        table.innerHTML += `<tr>
+            <td>${x} x ${i} </td>
+            <td>${resultat}</td>
+          </tr>`;
+    }
+})
+        </textarea>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="javascript/myscript.js"></script>
+<script src="javascript/multiplication_table.js"></script>
+</body>
+</html>

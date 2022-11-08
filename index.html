@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://symbols.getvecta.com/stencil_25/39_javascript.0ca26ec4ab.jpg" sizes="96x96">
+    <title>Js Workshop</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a class="active" href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section aria-label="home">
+        <div class="title">
+            <h1>Learn in fun way</h1>
+            <p>you will not get bored again</p>
+        </div>
+        <p>Practice what you know in easy way and accelerate your learning progress</p>
+        <a class="btn-primary" href="#exercises">start</a>
+    </section>
+    <section id="about" aria-label="about">
+        <h2 class="section-title">About JS</h2>
+        <p class="text">JavaScript is a scripting or programming language that allows you to implement complex features
+            on web pages every time a web page does more than just sit there and display static information for you to
+            look at displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video
+            jukeboxes, etc. you can bet that JavaScript is probably involved. It is the third layer of the layer
+            cake of standard web technologies, two of which (HTML and CSS) we have covered in much more detail in
+            other parts of the Learning Area.</p>
+        <a href="https://www.javascript.com/" target="_blank" class="btn-primary">visit official js website</a>
+    </section>
+    <section id="exercises" aria-label="exercises">
+        <h2 class="section-title">Exercises</h2>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <button type="button" class="active">Variables</button>
+                    </li>
+                    <li>
+                        <button type="button">Condition</button>
+                    </li>
+                    <li>
+                        <button type="button">Function</button>
+                    </li>
+                    <li>
+                        <button type="button" class="dropdown-toggle">Loop</button>
+                        <ul class="dropdown" id="loop">
+                            <li>
+                                <button type="button">For</button>
+                            </li>
+                            <li>
+                                <button type="button">While</button>
+                            </li>
+                            <li>
+                                <button type="button">Nested Loop</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="dropdown-toggle">String methode</button>
+                        <ul class="dropdown" id="stringmethode">
+                            <li>
+                                <button type="button">Search in string</button>
+                            </li>
+                            <li>
+                                <button type="button">Count a character</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="dropdown-toggle">Array methode</button>
+                        <ul class="dropdown" id="arraymethode">
+                            <li>
+                                <button type="button">Sort</button>
+                            </li>
+                            <li>
+                                <button type="button">Search in array</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="exercise">
+                <div aria-label="variables" class="show">
+                    <p>En utilisant les variables en JavaScript on va permuter deux nombres saisis dans deux inputs</p>
+                    <a href="pages/swap.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="condition">
+                    <p>En utilisant les conditions en JavaScript on va valider et indiquer si la date est correcte ou
+                        non</p>
+                    <a href="pages/date_validation.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="function">
+                    <p>En utilisant les fonctions en JavaScript on va faire une calculatrice</p>
+                    <a href="pages/calculator.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="for">
+                    <p>En utilisant la boucle for en JavaScript on va faire la table de multiplication d'un nombre</p>
+                    <a href="pages/multiplication_table.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="while">
+                    <p>En utilisant la boucle while en JavaScript on va faire une devine d'un nombre entre 1 et 50 avec
+                        un nombre de tentatives égale à 10</p>
+                    <a href="pages/Guess.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="nestedloop">
+                    <p>En utilisant les boucles imbriquées en JavaScript on va faire un losange en étoiles dont la
+                        longueur des diagonales est un nombre impair</p>
+                    <a href="pages/rhombus.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="searchinstring">
+                    <p>En utilisant les chaines en JavaScript on va faire une recherche et supression d'un mot dans une
+                        zone de texte</p>
+                    <a href="pages/stringsearch.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="countacharacter">
+                    <p>En utilisant les chaines en JavaScript on va compter le nombre de voyelles dans une phrase</p>
+                    <a href="pages/vowel_counter.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="sort">
+                    <p>En utilisant les tableaux en JavaScript on va trier un tableau dont la taille de tableau est
+                        demandée par l'utilisateur</p>
+                    <a href="pages/arraySort.html" class="btn-primary">Go to exercise</a>
+                </div>
+                <div aria-label="searchinarray">
+                    <p>En utilisant les tableaux en JavaScript on va faire une recherche d'une valeur dans un tableau
+                        d'entier</p>
+                    <a href="pages/arraySearch.html" class="btn-primary">Go to exercise</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="resources" aria-label="resources">
+        <h2 class="section-title">Resources</h2>
+        <p>To learn more about Javascript we propuse to you those sources providing different learning programs and ways
+            to choose what ever suit you, have fun >,<</p>
+        <div id="links">
+            <a href="https://www.w3schools.com/" target="_blank">W3schools.com</a>
+            <a href="https://developer.mozilla.org/en-US/" target="_blank">Developer.mozilla.org</a>
+            <a href="https://www.freecodecamp.org/" target="_blank">Freecodecamp.org</a>
+        </div>
+    </section>
+</main>
+<script src="javascript/myscript.js"></script>
+</body>
+</html>

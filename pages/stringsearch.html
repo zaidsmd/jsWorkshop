@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a5fdcae6a3.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>Search in string</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section aria-label="Swap Exercise" class="section-exercise" id="stringSearch">
+        <h1 class="section-title">Search in string</h1>
+        <div class="exercise-container">
+            <div class="state">Write a JavaScript program that asks the user to enter a sentence in one text box and a
+                word in another text box. Clicking the search button displays a message whether the word exists in the
+                sentence or not. Clicking on the delete button erases all occurrences of the word in the sentence (if
+                the word exists of course).
+            </div>
+            <div class="demo">
+                <form>
+                    <div>
+                        <p>Enter the sentence here:</p>
+                        <input type="text" name=sentence">
+                        <button type="button" class="btn-primary">search</button>
+                    </div>
+                    <div>
+                        <p>Enter the word to search or delete:</p>
+                        <input type="text" name="world" >
+                        <button type="button" class="btn-primary">delete</button>
+                    </div>
+                </form>
+                <div>
+                </div>
+            </div>
+            <div class="script">
+        <textarea readonly rows="38">
+
+            let search = document.querySelector(
+          "#stringSearch form div:first-of-type button"
+        );
+        let remove = document.querySelector(
+          "#stringSearch form div:last-of-type button"
+        );
+        let output = document.querySelector("#stringSearch .demo>div:last-of-type");
+        search.addEventListener("click", () => {
+          let sentence = document
+            .querySelector("#stringSearch form div:first-of-type input")
+            .value.toLowerCase()
+            .trim();
+          let word = document.querySelector(
+            "#stringSearch form div:last-of-type input"
+          );
+          let index = sentence.indexOf(word.value.toLowerCase().trim());
+          if (+index !== -1) {
+            output.innerHTML = "Le mot existe!";
+          } else {
+            output.innerHTML = "Le mot n'existe pas!";
+          }
+        });
+        remove.addEventListener("click", () => {
+          let sentence = document
+            .querySelector("#stringSearch form div:first-of-type input")
+            .value.toLowerCase()
+            .trim();
+          let word = document.querySelector(
+            "#stringSearch form div:last-of-type input"
+          );
+          let index = sentence.indexOf(word.value.toLowerCase().trim());
+          let afterDelete = sentence.replace(word.value, "");
+
+          output.innerHTML = afterDelete;
+        });
+
+
+        </textarea>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--<script src="javascript/myscript.js"></script>-->
+<script src="javascript/stringsearch.js"></script>
+</body>
+</html>

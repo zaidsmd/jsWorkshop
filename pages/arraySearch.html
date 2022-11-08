@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/a5fdcae6a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Array Search</title>
+</head>
+<body>
+<header>
+    <a href="index.html" id="logo">
+        <p>JS</p>
+        <p>Workshop</p>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About JS</a></li>
+            <li><a href="index.html#exercises">Exercises</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="arraySearch" aria-label="Search exercice " class="section-exercise">
+        <h1 class="section-title">Search in Array</h1>
+        <div class="exercise-container">
+            <div class="state">Write a JavaScript program that allows you to search for a value in an array of integers.
+                The user must follow the following steps:
+                1. Enter the table size,
+                2. Fill the array with integers
+                3. Enter the value to search for
+                4. Click on the “Search” button
+                The program then displays a message whether or not the value to be searched for exists in the array.
+            </div>
+            <div class="demo">
+                <div class="set">
+                    <p>Give the size of the array:</p>
+                    <input type="number">
+                    <button class="btn-primary" type="button">Validate</button>
+                </div>
+                <div class="input hide">
+                    <p>Please fil the table:</p>
+                    <div class="array">
+                    </div>
+                    <div class="checkpoint">
+                    </div>
+                </div>
+                <div class="search">
+                    <p>Give the value to search in the array:</p>
+                    <input type="number">
+                    <button class="btn-primary" type="button">Search</button>
+                </div>
+                <div class="output  "></div>
+            </div>
+            <div class="script">
+        <textarea readonly rows="31">
+
+
+        let validate = document.querySelector('#arraySearch .set button');
+        let tableLength = document.querySelector(' #arraySearch .set input');
+        const createTable = `<input type="number">`;
+        let arrayInput = document.querySelector('#arraySearch .input');
+        const tableInput = document.querySelector('#arraySearch .array');
+        const searchButton = document.querySelector('#arraySearch .search button');
+        const output = document.querySelector('#arraySearch .output');
+        let searchingKey = document.querySelector('#arraySearch .search input')
+        let myArray = [];
+        validate.addEventListener('click', () => {
+            arrayInput.classList.remove('hide');
+            tableInput.innerHTML = createTable.repeat(parseInt(tableLength.value));
+        })
+        searchButton.addEventListener('click' , ()=>{
+            for (let i = 0; i < tableLength.value  ; i++) {
+                myArray[i] = document.querySelector(`#arraySearch .array input:nth-child(${i+1})`).value;
+            }
+            for (let i = 0 ; i<tableLength.value; i++){
+                if (+myArray[i] === +searchingKey.value) {
+                    output.innerHTML = `<p style="color: Green">The number you are searching exist in the table (${myArray[i]})</p>`;
+                    break;
+                }else {
+                    output.innerHTML = `<p style="color: red">The number you are searching doesn't exist in the table (${searchingKey.value})</p>`
+
+                }
+            }
+        })
+        </textarea>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="javascript/myscript.js"></script>
+<script src="javascript/arraysearch.js"></script>
+</body>
+</html>
